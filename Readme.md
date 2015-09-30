@@ -1,8 +1,9 @@
-Heroku buildpack: Python, Numpy, and Scipy
+Heroku buildpack: Python, NLTK (and Numpy, Scipy)
 ====================================================
 
 This is a custom [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
-for Python apps that use NumPy and/or SciPy, powered by [pip](http://www.pip-installer.org/).
+for Python apps that use NLTK, NumPy and/or SciPy, powered by 
+[pip](http://www.pip-installer.org/).
 
 Please open a GitHub for any problems encountered or feature requests.
 If are using this project and found it useful, please let me know! (Preferably
