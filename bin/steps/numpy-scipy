@@ -11,8 +11,8 @@
 
 source $BIN_DIR/utils
 
-VENDORED_GIT_PREFIX="https://raw.githubusercontent.com/thenovices/npscipy-binaries/master"
-PY_PKGS="python/lib/python2.7/site-packages"
+VENDORED_GIT_PREFIX="https://raw.githubusercontent.com/brianthomas/npscipy-binaries/master"
+PY_PKGS="python/lib/python3.4/site-packages"
 
 function install_binaries {
   # Install binary dependences: BLAS, LAPACK, ATLAS, and Fortran
