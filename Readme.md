@@ -22,12 +22,13 @@ NumPy:
   * 1.8.2
   * 1.9.0
   * 1.9.1
-  * 1.9.2
+  * 1.9.2 (python3) 
 
 SciPy:
   * 0.13.3 (compiled against NumPy 1.9.0)
   * 0.14.0 (compiled against NumPy 1.8.1)
-  * 0.15.1 (compiled against NumPy 1.9.2)
+  * 0.15.1 (compiled against NumPy 1.9.2, but use 1.9.1)
+  * 0.16.0 (compiled against NumPy 1.9.2, python3)
 
 Note: SciPy should be compiled against the right minor version of NumPy, but
 the patch version doesn't matter, e.g., SciPy 0.15.1 can be compiled against
@@ -63,11 +64,11 @@ Usage
 -----
 For a new app:
 
-    heroku create --buildpack https://github.com/thenovices/heroku-buildpack-scipy
+    heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-scipy
 
 For an existing app:
 
-    heroku config:set BUILDPACK_URL=https://github.com/thenovices/heroku-buildpack-scipy
+    heroku config:set BUILDPACK_URL=https://github.com/brianthomas/heroku-buildpack-scipy
 
 You must specify your exact desired version in `requirements.txt` (e.g.,
 `numpy==1.9.0`). If no version is specified, the latest version available will
