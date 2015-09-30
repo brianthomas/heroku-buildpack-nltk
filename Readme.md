@@ -1,15 +1,11 @@
-Heroku buildpack: Python, NLTK (and Numpy, Scipy)
+Heroku buildpack for NLTK (and Numpy, Scipy)
 ====================================================
 
 This is a custom [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
 for Python apps that use NLTK, NumPy and/or SciPy, powered by 
-[pip](http://www.pip-installer.org/).
+[pip](http://www.pip-installer.org/) and compiled for Python 3.
 
 Please open a GitHub for any problems encountered or feature requests.
-If are using this project and found it useful, please let me know! (Preferably
-by email: brandon.k.liu@gmail.com). I maintain this project on my spare time,
-and I am much more motivated to work on it if I know there are people who are
-benefiting.
 
 Details
 -------
@@ -17,35 +13,21 @@ Details
 This buildpack currently supports:
 
 NumPy:
-  * 1.6.2
-  * 1.7.2
-  * 1.8.1
-  * 1.8.2
-  * 1.9.0
-  * 1.9.1
-  * 1.9.2 (python3) 
+  * 1.9.2 
 
 SciPy:
-  * 0.13.3 (compiled against NumPy 1.9.0)
-  * 0.14.0 (compiled against NumPy 1.8.1)
-  * 0.15.1 (compiled against NumPy 1.9.2, but use 1.9.1)
   * 0.16.0 (compiled against NumPy 1.9.2, python3)
 
 NLTK:
   * 3.0.5 (compiled against NumPy 1.9.2, Scipy 0.16.0, python3)
 
-NLTK support includes downloading corpora.
-
-Note: SciPy should be compiled against the right minor version of NumPy, but
-the patch version doesn't matter, e.g., SciPy 0.15.1 can be compiled against
-1.9.0 or 1.9.1, but probably not 1.8. I checked every single case though --
-you should run tests (`numpy.test()` or `scipy.test()`) if you aren't sure
-that things will work.
+NLTK support includes downloading (all of the) corpora.
 
 This package will also install compiled runtime libraries for BLAS, LAPACK,
 ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
 
-### Known Issues and Todos
+### Known Issues and Todos (from the original project we forked from, not sure
+now how much these apply) 
 
   1. Scikit-learn can be installed, but may not pass all tests. For example,
      scikit-learn 0.14.1 installed with NumPy 1.9.0 and SciPy 0.13.3 did not
@@ -58,6 +40,7 @@ ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
      to resolve. See more information [here][issue19]. Please contact me if
      you have a problem related to this.
 
+Some issues from forked site (may or may not apply still):
 [issue9]: https://github.com/thenovices/heroku-buildpack-scipy/issues/9#issuecomment-61660727
 [issue11]: https://github.com/thenovices/heroku-buildpack-scipy/issues/11#issuecomment-85143132
 [issue15]: https://github.com/thenovices/heroku-buildpack-scipy/issues/15
@@ -70,11 +53,11 @@ Usage
 -----
 For a new app:
 
-    heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-scipy
+    heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-nltk
 
 For an existing app:
 
-    heroku config:set BUILDPACK_URL=https://github.com/brianthomas/heroku-buildpack-scipy
+    heroku config:set BUILDPACK_URL=https://github.com/brianthomas/heroku-buildpack-nltk
 
 You must specify your exact desired version in `requirements.txt` (e.g.,
 `numpy==1.9.0`). If no version is specified, the latest version available will
@@ -87,7 +70,7 @@ Demo
     $ mkdir testheroku
     $ cd testheroku
     $ git init
-    $ heroku create --buildpack https://github.com/thenovices/heroku-buildpack-scipy
+    $ heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-nltk
     $ echo -e "numpy==1.9.2\nscipy==0.15.1" > requirements.txt
     $ git add requirements.txt
     $ git commit -m 'Added requirements'
