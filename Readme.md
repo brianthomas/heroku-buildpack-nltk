@@ -30,6 +30,11 @@ SciPy:
   * 0.15.1 (compiled against NumPy 1.9.2, but use 1.9.1)
   * 0.16.0 (compiled against NumPy 1.9.2, python3)
 
+NLTK:
+  * 3.0.5 (compiled against NumPy 1.9.2, Scipy 0.16.0, python3)
+
+NLTK support includes downloading corpora.
+
 Note: SciPy should be compiled against the right minor version of NumPy, but
 the patch version doesn't matter, e.g., SciPy 0.15.1 can be compiled against
 1.9.0 or 1.9.1, but probably not 1.8. I checked every single case though --
