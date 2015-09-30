@@ -11,7 +11,7 @@
 
 source $BIN_DIR/utils
 
-VENDORED_GIT_PREFIX="https://raw.githubusercontent.com/brianthomas/npscipy-binaries/master"
+VENDORED_GIT_PREFIX="https://raw.githubusercontent.com/brianthomas/nltk-np-scipy-binaries/master"
 PY_PKGS="python/lib/python3.4/site-packages"
 
 function install_binaries {
