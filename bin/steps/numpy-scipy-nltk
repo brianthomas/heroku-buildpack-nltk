@@ -88,6 +88,7 @@ REQ_TXT=$(pwd)/requirements.txt
 NUMPY_VERSIONS=(1.6.2 1.7.2 1.8.1 1.8.2 1.9.0 1.9.1 1.9.2)
 SCIPY_VERSIONS=(0.13.3 0.14.0 0.15.1 0.16.0)
 NLTK_VERSIONS=(3.0.5)
+GENSIM_VERSIONS=(0.12.0)
 
 if (pip-grep --silent $REQ_TXT numpy scipy nltk &> /dev/null); then
   puts-step "Detected numpy/scipy/nltk in requirements.txt."
@@ -95,11 +96,12 @@ if (pip-grep --silent $REQ_TXT numpy scipy nltk &> /dev/null); then
 
   install_binaries
 
-  install_prebuilt "numpy" NUMPY_VERSIONS[@]
-  install_prebuilt "scipy" SCIPY_VERSIONS[@]
-  install_prebuilt "nltk"  NLTK_VERSIONS[@]
+  install_prebuilt "numpy"  NUMPY_VERSIONS[@]
+  install_prebuilt "scipy"  SCIPY_VERSIONS[@]
+  install_prebuilt "nltk"   NLTK_VERSIONS[@]
   puts-step "Install nltk corpora"
   python -m textblob.download_corpora &> /dev/null
+  install_prebuilt "gensim" GENSIM_VERSIONS[@]
 
   cd ..
 fi

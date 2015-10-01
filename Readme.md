@@ -1,9 +1,9 @@
-Heroku buildpack for NLTK (and Numpy, Scipy)
+Heroku buildpack for Textmining (Gensim, NLTK, Numpy, Scipy)
 ====================================================
 
 This is a custom [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
-for Python apps that use NLTK, NumPy and/or SciPy, powered by 
-[pip](http://www.pip-installer.org/) and compiled for Python 3.
+for Python apps that use any combination of Gensim, NLTK, NumPy and/or SciPy, 
+powered by [pip](http://www.pip-installer.org/) and compiled for Python 3.
 
 Please open a GitHub for any problems encountered or feature requests.
 
@@ -13,20 +13,24 @@ Details
 This buildpack currently supports:
 
 NumPy:
-  * 1.9.2 
+  * 1.9.2  
 
 SciPy:
-  * 0.16.0 (compiled against NumPy 1.9.2, python3)
+  * 0.16.0 (compiled against NumPy 1.9.2)
 
 NLTK:
-  * 3.0.5 (compiled against NumPy 1.9.2, Scipy 0.16.0, python3)
+  * 3.0.5 (compiled against NumPy 1.9.2, Scipy 0.16.0)
 
-NLTK support includes downloading (all of the) corpora.
+Gensim:
+  * 0.12.2 (compiled against NumPy 1.9.2, Scipy 0.16.0)
+
+NLTK support includes downloading (all of the) corpora (some of which 
+are needed by the gensim package).
 
 This package will also install compiled runtime libraries for BLAS, LAPACK,
 ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
 
-### Known Issues and Todos (from the original project we forked from, not sure
+### Known Issues and TODOs (from the original project we forked from, not sure
 now how much these apply) 
 
   1. Scikit-learn can be installed, but may not pass all tests. For example,
@@ -53,16 +57,16 @@ Usage
 -----
 For a new app:
 
-    heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-nltk
+    heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-textmining
 
 For an existing app:
 
-    heroku config:set BUILDPACK_URL=https://github.com/brianthomas/heroku-buildpack-nltk
+    heroku config:set BUILDPACK_URL=https://github.com/brianthomas/heroku-buildpack-textmining
 
 You must specify your exact desired version in `requirements.txt` (e.g.,
 `numpy==1.9.0`). If no version is specified, the latest version available will
 be used. At this time, this buildpack does not support requirements of the
-form `numpy>=1.8`.
+form `numpy>=1.9`.
 
 Demo
 ----
@@ -70,8 +74,8 @@ Demo
     $ mkdir testheroku
     $ cd testheroku
     $ git init
-    $ heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-nltk
-    $ echo -e "numpy==1.9.2\nscipy==0.15.1" > requirements.txt
+    $ heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-textmining
+    $ echo -e "nltk==3.0.5\numpy==1.9.2\nscipy==0.15.1" > requirements.txt
     $ git add requirements.txt
     $ git commit -m 'Added requirements'
     $ git push heroku master
@@ -80,5 +84,6 @@ Demo
 Acknowledgments
 ---------------
 
-This fork is taken from @dbrgn -- I owe thanks to him, @wyn, and others for
-setting up a lot of the code here.
+This fork is taken from @thenovices who previously forked from @dbrgn. Many thanks to those
+fellows and others setting up a lot of the code here.
+
