@@ -166,8 +166,8 @@ source $BIN_DIR/steps/pylibmc
 # Libffi support.
 source $BIN_DIR/steps/cryptography
 
-# Numpy/scipy support
-source $BIN_DIR/steps/numpy-scipy-nltk
+# Textmining binaries support
+source $BIN_DIR/steps/textmining-binaries
 
 # Install dependencies with Pip.
 source $BIN_DIR/steps/pip-install
