@@ -34,8 +34,10 @@ do so).
 This package will also install compiled runtime libraries for BLAS, LAPACK,
 ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
 
-### Known Issues and TODOs (from the original project we forked from, not sure
-now how much these apply) 
+### (Possible) Known Issues and TODOs 
+
+These all come from the original project we forked from, not sure now how much 
+these apply to this project.
 
   1. Scikit-learn can be installed, but may not pass all tests. For example,
      scikit-learn 0.14.1 installed with NumPy 1.9.0 and SciPy 0.13.3 did not
