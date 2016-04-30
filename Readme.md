@@ -39,8 +39,8 @@ ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
 These all come from the original project we forked from, not sure now how much 
 these apply to this project.
 
-  1. This buildpack may not work well with Multipack apps (e.g., see [this
-     issue][https://github.com/thenovices/heroku-buildpack-scipy/issues/15]
+  1. This buildpack may not work well with Multipack apps (e.g., see [issue15]: 
+     https://github.com/thenovices/heroku-buildpack-scipy/issues/15
   2. [issue9]: https://github.com/thenovices/heroku-buildpack-scipy/issues/9#issuecomment-61660727
   3. [issue11]: https://github.com/thenovices/heroku-buildpack-scipy/issues/11#issuecomment-85143132
   4. [issue19]: https://github.com/thenovices/heroku-buildpack-scipy/issues/19
