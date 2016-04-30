@@ -12,6 +12,9 @@ Details
 
 This buildpack currently supports:
 
+Python:
+  * 3.4.x
+
 NumPy:
   * 1.9.2  
 
@@ -25,7 +28,8 @@ Gensim:
   * 0.12.2 (compiled against NumPy 1.9.2, Scipy 0.16.0)
 
 NLTK support includes downloading (all of the) corpora (some of which 
-are needed by the gensim package).
+are needed by the gensim package, and will import textblob package to
+do so).
 
 This package will also install compiled runtime libraries for BLAS, LAPACK,
 ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
@@ -75,7 +79,7 @@ Demo
     $ cd testheroku
     $ git init
     $ heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-textmining
-    $ echo -e "nltk==3.0.5\numpy==1.9.2\nscipy==0.15.1" > requirements.txt
+    $ echo -e "nltk==3.0.5\numpy==1.9.2\nscipy==0.16.0" > requirements.txt
     $ git add requirements.txt
     $ git commit -m 'Added requirements'
     $ git push heroku master
