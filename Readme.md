@@ -39,22 +39,11 @@ ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
 These all come from the original project we forked from, not sure now how much 
 these apply to this project.
 
-  1. Scikit-learn can be installed, but may not pass all tests. For example,
-     scikit-learn 0.14.1 installed with NumPy 1.9.0 and SciPy 0.13.3 did not
-     pass all tests. You can see the failed tests in [this issue][issue9].
-     Another user [reported][issue11] that scikit-learn 0.15.2 installed fine, although
-     he did not post any test results.
-  2. This buildpack may not work well with Multipack apps (e.g., see [this
-     issue][issue15]).
-  3. I was getting some minor test failures for NumPy 1.9.2 that I wasn't able
-     to resolve. See more information [here][issue19]. Please contact me if
-     you have a problem related to this.
-
-Some issues from forked site (may or may not apply still):
-[issue9]: https://github.com/thenovices/heroku-buildpack-scipy/issues/9#issuecomment-61660727
-[issue11]: https://github.com/thenovices/heroku-buildpack-scipy/issues/11#issuecomment-85143132
-[issue15]: https://github.com/thenovices/heroku-buildpack-scipy/issues/15
-[issue19]: https://github.com/thenovices/heroku-buildpack-scipy/issues/19
+  1. This buildpack may not work well with Multipack apps (e.g., see [this
+     issue][https://github.com/thenovices/heroku-buildpack-scipy/issues/15]
+  2. [issue9]: https://github.com/thenovices/heroku-buildpack-scipy/issues/9#issuecomment-61660727
+  3. [issue11]: https://github.com/thenovices/heroku-buildpack-scipy/issues/11#issuecomment-85143132
+  4. [issue19]: https://github.com/thenovices/heroku-buildpack-scipy/issues/19
 
 If any of these issues are immediately impacting you, please open a Github
 issue so that I know that they are higher priority items.
