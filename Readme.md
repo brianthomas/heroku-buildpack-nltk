@@ -65,7 +65,7 @@ For a new app:
 
 For an existing app:
 
-    heroku config:set BUILDPACK_URL=https://github.com/brianthomas/heroku-buildpack-textmining
+    heroku buildpacks:set https://github.com/brianthomas/heroku-buildpack-textmining
 
 You must specify your exact desired version in `requirements.txt` (e.g.,
 `numpy==1.9.0`). If no version is specified, the latest version available will
