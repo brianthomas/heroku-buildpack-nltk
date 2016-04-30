@@ -79,7 +79,7 @@ Demo
     $ cd testheroku
     $ git init
     $ heroku create --buildpack https://github.com/brianthomas/heroku-buildpack-textmining
-    $ echo -e "nltk==3.0.5\numpy==1.9.2\nscipy==0.16.0" > requirements.txt
+    $ echo "nltk==3.0.5\nnumpy==1.9.2\nscipy==0.16.0" > requirements.txt
     $ git add requirements.txt
     $ git commit -m 'Added requirements'
     $ git push heroku master
