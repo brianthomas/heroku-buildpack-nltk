@@ -1,3 +1,11 @@
+## py34_v2 (July 2016)
+
+* updated pip, setuptools versions supported
+
+## py34_v1 (Fall 2015)
+
+* Added support for python 3.4 and gensim
+
 ## v15 (June 16, 2014)
 
 * Added support for NumPy 1.8.1 and SciPy 0.14.0. (@thenovices)
