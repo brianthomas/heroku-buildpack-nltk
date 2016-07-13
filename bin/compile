@@ -29,8 +29,8 @@ WEBCONCURRENCY_PROFILE_PATH="$BUILD_DIR/.profile.d/python.webconcurrency.sh"
 DEFAULT_PYTHON_VERSION="python-3.4.0"
 DEFAULT_PYTHON_STACK="cedar"
 PYTHON_EXE="/app/.heroku/python/bin/python"
-PIP_VERSION="7.1.2"
-SETUPTOOLS_VERSION="18.3.2"
+PIP_VERSION="8.1.2"
+SETUPTOOLS_VERSION="24.0.2"
 
 # Setup bpwatch
 export PATH=$PATH:$ROOT_DIR/vendor/bpwatch
