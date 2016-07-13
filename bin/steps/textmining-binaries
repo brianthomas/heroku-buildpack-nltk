@@ -90,7 +90,7 @@ SCIPY_VERSIONS=(0.16.0)
 NLTK_VERSIONS=(3.0.5)
 GENSIM_VERSIONS=(0.12.2)
 
-if (pip-grep --silent $REQ_TXT numpy scipy nltk &> /dev/null); then
+if (pip-grep --silent $REQ_TXT numpy scipy nltk gensim &> /dev/null); then
   puts-step "Detected numpy/scipy/nltk in requirements.txt."
   cd .heroku
 
