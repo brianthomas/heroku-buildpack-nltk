@@ -92,6 +92,7 @@ GENSIM_VERSIONS=(0.12.2, 0.13.1)
 
 if (pip-grep --silent $REQ_TXT numpy scipy nltk gensim &> /dev/null); then
   puts-step "Detected numpy/scipy/nltk in requirements.txt."
+
   cd .heroku
 
   install_binaries
@@ -103,6 +104,10 @@ if (pip-grep --silent $REQ_TXT numpy scipy nltk gensim &> /dev/null); then
   pip install textblob
   python -m textblob.download_corpora &> /dev/null
   install_prebuilt "gensim" GENSIM_VERSIONS[@]
+
+  # strip out requirments for our binaries now
+  mv $REQ_TXT "$REQ_TXT.bak"
+  cat "$REQ_TXT.bak" | grep -v scipy | grep -v gensim | grep -v nltk | grep -v numpy > $REQ_TXT 
 
   cd ..
 fi
