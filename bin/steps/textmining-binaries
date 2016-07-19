@@ -85,10 +85,10 @@ function install_prebuilt {
 }
 
 REQ_TXT=$(pwd)/requirements.txt
-NUMPY_VERSIONS=(1.9.2 1.11.1)
-SCIPY_VERSIONS=(0.16.0 0.17.1)
-NLTK_VERSIONS=(3.0.5 3.2.1)
-GENSIM_VERSIONS=(0.12.2 0.13.1)
+NUMPY_VERSIONS=(1.9.2, 1.11.1)
+SCIPY_VERSIONS=(0.16.0, 0.17.1)
+NLTK_VERSIONS=(3.0.5, 3.2.1)
+GENSIM_VERSIONS=(0.12.2, 0.13.1)
 
 if (pip-grep --silent $REQ_TXT numpy scipy nltk gensim &> /dev/null); then
   puts-step "Detected numpy/scipy/nltk in requirements.txt."
