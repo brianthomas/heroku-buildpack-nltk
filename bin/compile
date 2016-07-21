@@ -169,7 +169,7 @@ source $BIN_DIR/steps/cryptography
 # Textmining binaries support
 source $BIN_DIR/steps/textmining-binaries
 
-# Install dependencies with Pip.
+# Install remaining dependencies with Pip.
 source $BIN_DIR/steps/pip-install
 
 # Django collectstatic support.
