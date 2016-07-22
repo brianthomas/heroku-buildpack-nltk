@@ -17,15 +17,19 @@ Python:
 
 NumPy:
   * 1.9.2  
+  * 1.11.1  
 
 SciPy:
   * 0.16.0 (compiled against NumPy 1.9.2)
+  * 0.17.1 (compiled against NumPy 1.11.1)
 
 NLTK:
   * 3.0.5 (compiled against NumPy 1.9.2, Scipy 0.16.0)
+  * 3.2.1 (compiled against NumPy 1.11.1, Scipy 0.17.1)
 
 Gensim:
   * 0.12.2 (compiled against NumPy 1.9.2, Scipy 0.16.0)
+  * 0.13.1 (compiled against NumPy 1.11.1, Scipy 0.17.1)
 
 NLTK support includes downloading (all of the) corpora (some of which 
 are needed by the gensim package, and will import textblob package to
@@ -33,6 +37,13 @@ do so).
 
 This package will also install compiled runtime libraries for BLAS, LAPACK,
 ATLAS, and Fortran, which are needed by NumPy and SciPy at runtime.
+
+NOTE: because the package is under (irregular) development, I try to supply
+tags which indicate stable points in the codebase (master branch). These
+currently include:
+ 
+    * py34_v1 : Python 3.4 ver 1, initial set of working binaries
+    * py34_v2 : Python 3.4 ver 2, added updated gensim, nltk, numpy, scipy binaries 
 
 ### (Possible) Known Issues and TODOs 
 
