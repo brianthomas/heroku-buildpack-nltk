@@ -33,7 +33,6 @@ function install_binaries {
 }
 
 function install_prebuilt {
-  local workdir=`pwd`
   local pkg=$1
   declare -a versions=("${!2}")
   local install_version=""
@@ -79,22 +78,20 @@ function install_prebuilt {
   local name="${pkg}-${install_version}"
   puts-step "Downloading prebuilt $pkg ($install_version)"
   curl -O "${VENDORED_GIT_PREFIX}/${name}.tar.gz" &> /dev/null
-  
-  puts-step "Installing $pkg ($install_version) in $workdir"
+  puts-step "Installing $pkg ($install_version)"
   tar -xzf "${name}.tar.gz"
   cp -a venv/* python/
   rm -rf venv "${name}.tar.gz"
 }
 
 REQ_TXT=$(pwd)/requirements.txt
-NUMPY_VERSIONS=(1.11.1)
-SCIPY_VERSIONS=(0.17.1)
-NLTK_VERSIONS=(3.2.1)
-GENSIM_VERSIONS=(0.13.1)
+NUMPY_VERSIONS=(1.9.2, 1.11.1)
+SCIPY_VERSIONS=(0.16.0, 0.17.1)
+NLTK_VERSIONS=(3.0.5, 3.2.1)
+GENSIM_VERSIONS=(0.12.2, 0.13.1)
 
 if (pip-grep --silent $REQ_TXT numpy scipy nltk gensim &> /dev/null); then
   puts-step "Detected numpy/scipy/nltk in requirements.txt."
-
   cd .heroku
 
   install_binaries
@@ -106,10 +103,6 @@ if (pip-grep --silent $REQ_TXT numpy scipy nltk gensim &> /dev/null); then
   pip install textblob
   python -m textblob.download_corpora &> /dev/null
   install_prebuilt "gensim" GENSIM_VERSIONS[@]
-
-  # strip out requirments for our binaries now
-  mv $REQ_TXT "$REQ_TXT.bak"
-  cat "$REQ_TXT.bak" | grep -v scipy | grep -v gensim | grep -v nltk | grep -v numpy > $REQ_TXT 
 
   cd ..
 fi
