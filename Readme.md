@@ -5,7 +5,7 @@ This is a custom [Heroku buildpack](http://devcenter.heroku.com/articles/buildpa
 for Python apps that use any combination of Gensim, NLTK, NumPy and/or SciPy, 
 powered by [pip](http://www.pip-installer.org/) and compiled for Python 3.
 
-Please open a GitHub for any problems encountered or feature requests.
+Please open a GitHub issue for any problems encountered or feature requests.
 
 Details
 -------
