@@ -33,6 +33,7 @@ function install_binaries {
 }
 
 function install_prebuilt {
+  local workdir=`pwd`
   local pkg=$1
   declare -a versions=("${!2}")
   local install_version=""
@@ -78,7 +79,8 @@ function install_prebuilt {
   local name="${pkg}-${install_version}"
   puts-step "Downloading prebuilt $pkg ($install_version)"
   curl -O "${VENDORED_GIT_PREFIX}/${name}.tar.gz" &> /dev/null
-  puts-step "Installing $pkg ($install_version)"
+  
+  puts-step "Installing $pkg ($install_version) in $workdir"
   tar -xzf "${name}.tar.gz"
   cp -a venv/* python/
   rm -rf venv "${name}.tar.gz"
