@@ -7,7 +7,7 @@ puts-step "Installing dependencies with pip"
 #/app/.heroku/python/bin/pip install -r requirements.txt --exists-action=w --src=./.heroku/src | cleanup | indent
 echo "Remaining requirements are:"
 echo `cat requirements.txt`
-/app/.heroku/python/bin/pip install -r requirements.txt --exists-action=w --src=./.heroku/src | cleanup | indent
+/app/.heroku/python/bin/pip install -r requirements.txt --no-deps --src=./.heroku/src | cleanup | indent
 
 echo "initial install step stopped"
 
