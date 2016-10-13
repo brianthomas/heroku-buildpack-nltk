@@ -101,7 +101,7 @@ if (pip-grep --silent $REQ_TXT numpy scipy nltk gensim &> /dev/null); then
   install_prebuilt "nltk"   NLTK_VERSIONS[@]
   puts-step "Install nltk corpora"
   pip install textblob
-  python -m textblob.download_corpora &> /dev/null
+  python -m textblob.download_corpora 
   install_prebuilt "gensim" GENSIM_VERSIONS[@]
 
   cd ..
